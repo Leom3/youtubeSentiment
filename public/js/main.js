@@ -22,7 +22,13 @@ function getCookie(cname) {
 
 function getUrl() {
   var url = document.getElementById("Url").value;
+  var y = document.getElementsByClassName("search-box");
 
+  if (y[0].style.display === "none") {
+    y[0].style.display = "block";
+  } else {
+    y[0].style.display = "none";
+  }
   socket.emit(getComments, url);
 }
 
