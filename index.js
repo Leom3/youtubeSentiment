@@ -28,11 +28,13 @@ function analayseAndEmit(array, socket) {
 			result = "negative";
 		data.push({"comment" : array[i], "score" : result});
 	}
+	console.log("emitting socket message");
 	return(socket.emit("receiveComments", data));
 }
 
 io.sockets.on('connection', function (socket) {
 	socket.on('getComments', function(data) {
+		console.log("received socket call");
 		var commentsArray = [];
 		var videoId = getVideoId(data);
 		console.log(videoId);

@@ -1,9 +1,5 @@
 const socket = io();
 
-window.onbeforeunload = function() {
-  return "If you leave this page, you won'll have to wait for the next!";
-}
-
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -22,20 +18,23 @@ function getCookie(cname) {
 
 function getUrl() {
   var url = document.getElementById("Url").value;
-  var y = document.getElementsByClassName("search-box");
 
-  if (y[0].style.display === "none") {
-    y[0].style.display = "block";
-  } else {
-    y[0].style.display = "none";
-  }
-  socket.emit(getComments, url);
+  socket.emit("getComments", url);
 }
 
 socket.on('receiveComments', (comments) => {
-  $("body").html("");
-});
-
-$(".resetButton").click(() => {
-  socket.emit("getComments", "");
+  console.log(comments);
+  var iconTab = ['<i class="far fa-smile-wink"></i>', '<i class="far fa-meh-blank"></i>', '<i class="far fa-sad-tear"></i>']
+  $(".container").remove();
+  $("body").append('<div class="container"></div>');
+  for (i in comments) {
+    var index = null;
+    if (comments[i].score == "positive")
+      index = 0;
+    else if(comments[i].score == "neutral")
+      index = 1;
+    else
+      index = 2;
+    $(".container").append('<div class="comment">' + '<p>' + comments[i].comment + '</p>' + iconTab[index] + '</div>');
+  }
 });

@@ -3,7 +3,8 @@
 body{
   margin: 0;
   padding: 0;
-  background: #183ee8
+  background: #183ee8;
+  font-family: 'Roboto', sans-serif;
 }
 
 .search-box{
@@ -53,4 +54,27 @@ body{
   line-height: 40px;
   width: 0px;
   font-weight: bold;
+}
+
+.container {
+  margin:auto;
+  width: max-content;
+  height: auto;
+}
+
+.comment {
+  display:grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  background-color: white;
+  border-radius: 10px;
+  border : 2px solid black;
+  margin: 10px 0px;
+}
+
+.comment p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 600px;
 }
