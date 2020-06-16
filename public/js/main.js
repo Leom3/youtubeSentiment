@@ -20,6 +20,12 @@ function getCookie(cname) {
   return "";
 }
 
+function getUrl() {
+  var url = document.getElementById("Url").value;
+
+  socket.emit(getComments, url);
+}
+
 socket.on('receiveComments', (comments) => {
   $("body").html("");
 });
