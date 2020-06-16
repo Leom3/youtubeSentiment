@@ -18,7 +18,7 @@ function getCookie(cname) {
 
 function getUrl() {
   var url = document.getElementById("Url").value;
-
+  document.getElementById("Url").value = "";
   socket.emit("getComments", url);
 }
 
@@ -27,6 +27,7 @@ socket.on('receiveComments', (comments) => {
   var iconTab = ['<i class="far fa-smile-wink"></i>', '<i class="far fa-meh-blank"></i>', '<i class="far fa-sad-tear"></i>']
   $(".container").remove();
   $("body").append('<div class="container"></div>');
+  $(".search-box").css({'top' : '40px'});
   for (i in comments) {
     var index = null;
     if (comments[i].score == "positive")

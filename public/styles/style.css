@@ -3,7 +3,7 @@
 body{
   margin: 0;
   padding: 0;
-  background: #183ee8;
+  background-color: rgb(94,81,221) !important;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -58,18 +58,22 @@ body{
 
 .container {
   margin:auto;
-  width: max-content;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
 }
 
 .comment {
   display:grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
-  background-color: white;
+  grid-column-gap: 40px;
+  background: #2f3640;
+  border : 3px solid #2f3640;
   border-radius: 10px;
-  border : 2px solid black;
-  margin: 10px 0px;
+  margin: 20px auto;
+  padding: 10px;
+  width: max-content;
 }
 
 .comment p {
@@ -77,4 +81,31 @@ body{
   overflow: hidden;
   text-overflow: ellipsis;
   width: 600px;
+  color: white;
+  font-size: 1.2 rem;
+  font-weight: bold;
+}
+
+.fa-meh-blank, .fa-sad-tear, .fa-smile-wink {
+  font-size: 2rem;
+  height : auto;
+  margin : auto;
+}
+
+.fa-meh-blank {
+  color : white;
+}
+
+.fa-smile-wink {
+  color : #6aaf38;
+}
+
+.fa-sad-tear {
+  color: #af3838;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    margin-top : 250px;
+  }
 }
