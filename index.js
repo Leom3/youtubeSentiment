@@ -8,12 +8,9 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('getComments', function(data) {
 		var url = data.url;
+		socket.emit("receiveComments", "");
 	});
-
 });
-
-app.use(cookieParser());
-
 app.use(express.json());
 
 app.use(express.static(__dirname + '/public'));

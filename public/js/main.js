@@ -1,8 +1,4 @@
 const socket = io();
-var userName = "";
-var turn = 0;
-let isHost = false;
-let currentVote = -1;
 
 window.onbeforeunload = function() {
   return "If you leave this page, you won'll have to wait for the next!";
@@ -24,10 +20,10 @@ function getCookie(cname) {
   return "";
 }
 
-socket.on('receiveComments', (players) => {
+socket.on('receiveComments', (comments) => {
   $("body").html("");
 });
 
 $(".resetButton").click(() => {
-  socket.emit("reset", "");
+  socket.emit("getComments", "");
 });
